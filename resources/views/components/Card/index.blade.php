@@ -1,4 +1,5 @@
 <div class="row row-cols-1 row-cols-md-2 g-4 col-12  card-container">
+    
     @foreach ($cardItem as $item)
     <div class="col d-flex justify-content-center align-items-stretch">
         <div class="card">
@@ -15,7 +16,7 @@
                             aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
                             style="width: 75%"><span>75%</span></div>
                     </div>
-                <a href="#" class="btn bg-btn d-flex gap-2 justify-content-center align-items-center text-white mt-3"> 
+                <a href="/donasi" class="btn bg-btn d-flex gap-2 justify-content-center align-items-center text-white mt-3"> 
                     <i class="fas fa-gift"></i>
                     <span>Donasi Sekarang</span>
                 </a>

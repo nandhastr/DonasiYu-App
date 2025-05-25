@@ -9,11 +9,15 @@ use Illuminate\Support\Str;
 class Donasi extends Model
 {
     use HasFactory;
+
+    protected $keyType = 'string';   
+    public $incrementing = false;
+
     protected $fillable = [
         'user_id',
         'nominal',
-        'metode',
-        'peritiwa',
+        'methode',
+        'peristiwa',
         'pesan',
     ];
 

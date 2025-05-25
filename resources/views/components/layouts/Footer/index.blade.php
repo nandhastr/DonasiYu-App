@@ -41,6 +41,7 @@
 <!-- AdminLTE App -->
 <script src="{{  asset('/dist/js/adminlte.js')}}"></script>
 
+
 </body>
 
 </html>

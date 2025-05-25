@@ -12,16 +12,29 @@ Route::get('/', [HomeController::class, 'index']);
 
 // // route auth
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login.store', [LoginController::class, 'store'])->name('login.store');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register.store', [RegisterController::class, 'store'])->name('register.store');
 
 
-// route donasi
-Route::get('/donasi', [DonasiController::class, 'index']);
+
+Route::middleware(['isLogin'])->group(function () {
+    
+    // route donasi
+    Route::get('/donasi', [DonasiController::class, 'index'])->name('donasi');
+    Route::post('/donasi.store', [DonasiController::class, 'store'])->name('donasi.store');
+    
+    
+    // route riwayat
+    Route::get('/riwayat', [DonasiController::class, 'riwayat'])->name('riwayat');
+    Route::delete('/riwayat/{id}', [DonasiController::class, 'destroy'])->name('riwayat.destroy');
+    
+    // route account
+    Route::get('/account', [AccountController::class, 'index']);
+
+});
 
 
-// route riwayat
-Route::get('/riwayat', [DonasiController::class, 'riwayat']);
-
-// route account
-Route::get('/account', [AccountController::class, 'index']);
 

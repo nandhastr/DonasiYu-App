@@ -12,8 +12,8 @@ return new class extends Migration {
             $table->char('id', 36)->primary();
             $table->char('user_id', 36)->index();
             $table->decimal('nominal', 15, 2);
-            $table->enum('methode', ['bank', 'cash', 'e-wallet'])->default('bank');
-            $table->string('peristiwa')->nullable(); 
+            $table->enum('methode', ['bank-transfer', 'cash', 'e-wallet']);
+            $table->string('peristiwa'); 
             $table->text('pesan')->nullable();
             $table->timestamps();
             

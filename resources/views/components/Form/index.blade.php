@@ -1,36 +1,51 @@
-<form>
+<form action="{{ route('donasi.store') }}" method="post">
+  @csrf
+  <input type="hidden" value="{{ Auth::user()->id }}" name="user_id" id="" placeholder="" />
+
   <div class="mb-3">
-    <label for="namalengkap" class="form-label text-sm">Nama Lengkap</label>
-    <input type="text" class="form-control text-sm" id="namalengkap" placeholder="Masukan Nama Lengkap">
+    <label class="form-label text-sm">Nama Lengkap</label>
+    <input type="text" class="form-control text-sm" disabled placeholder="{{ Auth::user()->name }}">
   </div>
-  <div class="mb-3">
-    <label for="emailInput" class="form-label text-sm">Email</label>
-    <input type="email" class="form-control text-sm" id="emailInput" placeholder="Masukan Email">
-  </div>
+
   <div class="mb-3">
     <label for="donasiInput" class="form-label text-sm">Jumlah Donasi</label>
-    <input type="number" class="form-control text-sm" id="donasiInput"
-      placeholder="Masukan Jumlah Donasi Dalam Bentuk Angka">
+    <input type="number" name="nominal" class="form-control text-sm @error('nominal') is-invalid @enderror"
+      value="{{ old('nominal') }}" id="donasiInput" placeholder="Masukan Jumlah Donasi Dalam Bentuk Angka">
+    @error('nominal')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
   </div>
 
   <div class="mb-3">
     <label for="donasiInput" class="form-label text-sm">Pilih Donasi Untuk :</label>
-    <select class="form-select text-sm" aria-label="Default select example">
-      <option selected>Pilih Tujuan Donasi </option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+    <select class="form-select text-sm @error('peristiwa') is-invalid @enderror" id="donasiInput"
+      value="{{ old('peristiwa') }}" name="peristiwa" aria-label="Default select example">
+      <option value="">Pilih Tujuan Donasi </option>
+      <option value="Donasi Bencana">Donasi Bencana</option>
+      <option value="Donasi Darurat">Donasi Darurat</option>
+      <option value="Donasi Pendidikan">Donasi Pendidikan</option>
+      <option value="Donasi Kesehatan">Donasi Kesehatan</option>
+      <option value="Donasi Kesejahteraan">Donasi Kesejahteraan</option>
+      <option value="Donasi Lainnya">Donasi Lainnya</option>
     </select>
+    @error('peristiwa')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
   </div>
 
 
   <div class="mb-3 d-flex flex-column ">
     <label class="form-label text-sm" for="exampleCheck1">Metode Pembayaran</label>
-
+    <div class="@error('methode') is-invalid @enderror">
       <div class="form-check form-check-inline form-control  gap-2  px-2 py-1  ">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-      
-        <label class="form-check-label d-flex gap-2 justify-content-center align-items-center text-sm " for="inlineRadio1">
+        <input class="form-check-input" type="radio" name="methode" id="inlineRadio1" value="bank-transfer">
+
+        <label class="form-check-label d-flex gap-2 justify-content-center align-items-center text-sm "
+          for="inlineRadio1">
           <img src="{{ asset('/image/payment-methode/bca.png') }}" class="bank-img" alt="BCA">
           <img src="{{ asset('/image/payment-methode/bri.png') }}" class="bank-img" alt="BRI">
           <img src="{{ asset('/image/payment-methode/mandiri.png') }}" class="bank-img" alt="Mandiri">
@@ -38,27 +53,43 @@
           <img src="{{ asset('/image/payment-methode/bjb.png') }}" class="bank-img" alt="BJB">
           Bank Transfer
         </label>
-      </div>  
-    <div class="d-flex gap-4 justify-content-between">
-      <div class="form-check form-check-inline form-control d-flex gap-2  px-2 py-1 ">
-        <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label  d-flex gap-2 justify-content-center align-items-center text-sm" for="inlineRadio1">
-          <img src="{{ asset('/image/payment-methode/e-wallet.png') }}" class="bank-img" alt="e-wallet">
-          E-Wallet</label>
       </div>
-      <div class="form-check form-check-inline form-control d-flex gap-2  px-2 py-1 ">
-        <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-        <label class="form-check-label  d-flex gap-2 justify-content-center align-items-center text-sm" for="inlineRadio1">
-          <img src="{{ asset('/image/payment-methode/cash.png') }}" class="bank-img" alt="cash">
-          Cash</label>
+      <div class="d-flex gap-4 justify-content-between">
+        <div class="form-check form-check-inline form-control d-flex gap-2  px-2 py-1 ">
+          <input class="form-check-input " type="radio" name="methode" id="inlineRadio2" value="e-wallet">
+          <label class="form-check-label  d-flex gap-2 justify-content-center align-items-center text-sm"
+            for="inlineRadio1">
+            <img src="{{ asset('/image/payment-methode/e-wallet.png') }}" class="bank-img" alt="e-wallet">
+            E-Wallet</label>
+        </div>
+        <div class="form-check form-check-inline form-control d-flex gap-2  px-2 py-1 ">
+          <input class="form-check-input " type="radio" name="methode" id="inlineRadio3" value="cash">
+          <label class="form-check-label  d-flex gap-2 justify-content-center align-items-center text-sm"
+            for="inlineRadio1">
+            <img src="{{ asset('/image/payment-methode/cash.png') }}" class="bank-img" alt="cash">
+            Cash</label>
+        </div>
       </div>
+
     </div>
+    @error('methode')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
   </div>
 
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label text-sm">Sampaikan Pesan Anda</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control text-sm @error('pesan') is-invalid @enderror" name="pesan"
+      id="exampleFormControlTextarea1" rows="3">{{ old('pesan') }}</textarea>
+
+    @error('pesan')
+    <div class="invalid-feedback">
+      {{ $message }}
     </div>
+    @enderror
+  </div>
 
   <button type="submit" class="btn bg-btn">Kirim Donasi</button>
 </form>

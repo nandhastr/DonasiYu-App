@@ -1,16 +1,30 @@
 @if (Request::is('login'))
+
+{{-- notification --}}
+@if (session('success'))
+<div class="alert alert-success text-sm">
+    {{ session('success') }}
+</div>
+@endif
+
 {{-- form login --}}
-<form action="" method="POST">
+<form action="{{ route('login.store') }}" method="POST">
     @csrf
     <div class="mb-3">
         <label for="email" class="form-label text-sm">Alamat Email</label>
-        <input type="email" name="email" class="form-control text-sm" id="email" placeholder="Masukkan Email" required>
+        <input type="email" value="{{ old('email') }}" name="email" class="form-control text-sm @error('email') is-invalid @enderror" id="email" placeholder="Masukkan Email" >
+        @error('email')
+            {{ $message }}
+        @enderror
     </div>
 
     <div class="mb-3">
         <label for="password" class="form-label text-sm">Kata Sandi</label>
-        <input type="password" name="password" class="form-control text-sm" id="password"
-            placeholder="Masukkan Kata Sandi" required>
+        <input type="password"  name="password" class="form-control text-sm @error('password') is-invalid @enderror" id="password"
+            placeholder="Masukkan Kata Sandi" >
+            @error('password')
+            {{ $message }}
+            @enderror
     </div>
 
     <div class="mb-3">
@@ -19,42 +33,69 @@
     </div>
 </form>
 @else
+
 {{-- form register --}}
-<form action="" method="POST" enctype="multipart/form-data">
+<form action="{{ route('register.store') }}" method="POST" enctype="multipart/form-data" >
     @csrf
 
     <div class="mb-3">
         <label for="name" class="form-label text-sm">Nama Lengkap</label>
-        <input type="text" name="name" class="form-control text-sm" id="name" placeholder="Masukkan Nama Lengkap"
-            required>
+        <input type="text" value="{{ old('name') }}" name="name" class="form-control text-sm @error('name') is-invalid @enderror" id="name" placeholder="Masukkan Nama Lengkap"
+            >
+            @error('name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+                
     </div>
 
     <div class="mb-3">
         <label for="email" class="form-label text-sm">Alamat Email</label>
-        <input type="email" name="email" class="form-control text-sm" id="email" placeholder="Masukkan Alamat Email"
-            required>
-    </div>
-
-    <div class="mb-3">
-        <label for="password" class="form-label text-sm">Kata Sandi</label>
-        <input type="password" name="password" class="form-control text-sm" id="password"
-            placeholder="Masukkan Kata Sandi" required>
+        <input type="email" value="{{ old('email') }}" name="email" class="form-control text-sm @error('email') is-invalid @enderror" id="email" placeholder="Masukkan Alamat Email"
+            >
+            @error('email')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
     </div>
 
     <div class="mb-3">
         <label for="phone" class="form-label text-sm">No. Telepon</label>
-        <input type="text" name="phone" class="form-control text-sm" id="phone" placeholder="Masukkan No. Telepon">
+        <input type="text" value="{{ old('phone') }}" name="phone" class="form-control text-sm @error('phone') is-invalid @enderror" id="phone" placeholder="Masukkan No. Telepon">
+        @error('phone')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
     <div class="mb-3">
         <label for="alamat" class="form-label text-sm">Alamat</label>
-        <textarea name="alamat" class="form-control text-sm" id="alamat" rows="2"
+        <textarea value="{{ old('alamat') }}" name="alamat" class="form-control text-sm @error('alamat') is-invalid @enderror" id="alamat" rows="2"
             placeholder="Masukkan Alamat"></textarea>
+            @error('alamat')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label text-sm">Kata Sandi</label>
+        <input type="password" value="" name="password" class="form-control text-sm @error('password') is-invalid @enderror" id="password" placeholder="Masukkan Kata Sandi"
+            >
+            @error('password')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
     </div>
 
     <div class="mb-3">
         <label for="foto" class="form-label text-sm">Foto Profil</label>
-        <input type="file" name="foto" class="form-control text-sm" id="foto" accept="image/*">
+        <input type="file" value="{{ old('foto') }}" name="foto" class="form-control text-sm" id="foto" accept="image/*">
     </div>
 
     <div class="mb-3">
@@ -63,3 +104,14 @@
     </div>
 </form>
 @endif
+
+<script>
+    setTimeout(() => {
+        const alert = document.querySelector('.alert-success');
+        if (alert) {
+            alert.style.transition = 'opacity 0.5s ease';
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500); 
+        }
+    }, 2000); 
+</script>

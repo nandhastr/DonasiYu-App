@@ -1,6 +1,16 @@
 @extends('components.layouts.MainLayout')
 @section('content')
 
+{{-- notification --}}
+@if (session('success'))
+<div class="card-body d-flex justify-content-end">
+    <button type="button" class="btn swalDefaultSuccess">
+        {{ session('success') }}
+    </button>
+</div>
+
+@endif
+
 <div class="d-flex justify-content-center align-items-center mb-5 ">
     <div class="d-flex flex-column  bg-white w-100 py-4 mt-5 form-donasi">
         <div class="d-flex flex-column justify-content-start align-items-center">
@@ -8,8 +18,24 @@
             <h3 class="text-umum font-weight-bold">Riwayat Donasiku</h3>
         </div>
         <div class="d-flex flex-column px-5 mt-3">
-            @include('components.Table.index')
+            @include('components.Table.index', ['donasiHistory' => $donasiHistory])
         </div>
     </div>
 </div>
+
+
+
+
+<script>
+    setTimeout(() => {
+        const alert = document.querySelector('.swalDefaultSuccess');
+        if (alert) {
+            alert.style.transition = 'opacity 0.5s ease';
+            alert.style.opacity = '0';
+            setTimeout(() => alert.remove(), 500); 
+        }
+    }, 2000); 
+</script>
+
+
 @endsection

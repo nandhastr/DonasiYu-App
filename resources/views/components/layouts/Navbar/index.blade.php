@@ -17,9 +17,11 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right px-2 py-2">
                 <span class=" dropdown-header font-weight-bold">DonasiYu</span>
-                <a href="/" class="dropdown-item text-sm">
+               <a href="/" class="dropdown-item text-sm">
                     <i class="fas fa-home mr-2"></i> Home
                 </a>
+                
+                @auth
                 <a href="/riwayat" class="dropdown-item text-sm">
                     <i class="fas fa-bookmark mr-2"></i> Riwayat Donasi
                 </a>
@@ -29,10 +31,19 @@
                 <a href="/account" class="dropdown-item text-sm">
                     <i class="fas fa-user mr-2"></i> Akun
                 </a>
+                <a href="/logout" class="dropdown-item text-sm dropdown-footer daftar-btn"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Keluar
+                </a>
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @else
                 <a href="/login" class="dropdown-item text-sm">
                     <i class="fas fa-sign-in-alt mr-2"></i> Masuk
                 </a>
                 <a href="/register" class="dropdown-item text-sm dropdown-footer daftar-btn">Daftar</a>
+                @endauth                
             </div>
             </li>
     </ul>

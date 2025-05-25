@@ -17,6 +17,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+    
     protected $fillable = [
         'name',
         'email',
@@ -41,6 +45,7 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+  
     protected function casts(): array
     {
         return [
@@ -49,6 +54,7 @@ class User extends Authenticatable
         ];
     }
 
+  
 
     protected static function boot()
     {

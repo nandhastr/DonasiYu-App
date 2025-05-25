@@ -11,7 +11,7 @@ class StoreDonasiRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,9 @@ class StoreDonasiRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nominal' => 'required|numeric|min:10000',
-            'metode' => 'required|string|in:bank,ovo,gopay',
+            'nominal' => 'required|numeric|min:1000',
+            'peristiwa' => 'required|string',
+            'methode' => 'required|string|',
             'pesan' => 'nullable|string|max:255',
         ];
     }
@@ -32,10 +33,11 @@ class StoreDonasiRequest extends FormRequest
      return[
         'nominal.required' => 'Nominal donasi harus diisi.',
         'nominal.numeric' => 'Nominal donasi harus berupa angka.',
-        'nominal.min' => 'Nominal donasi minimal Rp 10.000.',
-        'metode.required' => 'Metode pembayaran harus dipilih.',
-        'metode.string' => 'Metode pembayaran tidak valid.',
-        'metode.in' => 'Metode pembayaran tidak valid.',
+        'nominal.min' => 'Nominal donasi minimal Rp 1000.',
+        'peristiwa.required' => 'Peristiwa donasi harus diisi.',
+        'methode.required' => 'Metode pembayaran harus dipilih.',
+        'methode.string' => 'Metode pembayaran tidak valid.',
+        'methode.in' => 'Metode pembayaran tidak valid.',
         'pesan.string' => 'Pesan harus berupa teks.',
         'pesan.max' => 'Pesan maksimal 255 karakter.',
      ];
