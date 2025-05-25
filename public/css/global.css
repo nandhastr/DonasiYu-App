@@ -1,0 +1,157 @@
+:root {
+    --skyblue: #6FE6FC;
+    --skyblue-light: #A8F1FF;
+    --darkblue: #0A4D68;
+}
+*{
+    font-family: "Inter", sans-serif;
+}
+body{
+    background-color:#ecffff !important;
+    
+}
+
+.text-umum{
+    color: var(--darkblue);
+}
+.bg-btn{
+    background-color: var(--skyblue);
+    color: var(--darkblue);
+}
+.bg-btn:hover{
+    border: 1px solid var(--darkblue) !important;
+    color: var(--darkblue) !important;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand-text, .text-user{
+    color: var(--darkblue) !important;
+}
+
+.nav-first{
+    background-color: var(--darkblue) !important;
+}
+
+.navbar{
+    background: transparent !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.dropdown-item:hover{
+    background-color: var(--skyblue) !important; 
+    border-radius: 8px;
+    transition:all  0.2s ease-in-out
+}
+.daftar-btn{
+    margin-top: 4px;
+    border:1px solid #0A4D68 !important;
+    border-radius: 8px !important;
+    transition:all  0.2s ease-in-out
+}
+.daftar-btn:hover{
+    border: none !important;
+    transition:all  0.2s ease-in-out
+}
+ 
+.carousel-item {
+    height: 450px;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-item img.carousel-image {
+    height: 100%;
+    width: 80%;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.content-dashboard{
+    margin-top: 10%;
+}
+
+.title-donate{
+    font-size: 4rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+    color: var(--darkblue);
+    font-weight: bold;
+}
+
+.desc-donate{
+    font-size: 1rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
+    color: var(--skyblue-light);
+}
+
+.card-container{
+    padding-right: 6%;
+    padding-left: 6%;
+}
+.card-container .card, img{
+    width: 100%;
+}
+
+.card {
+    box-shadow: 3px 3px 8px rgba(90, 90, 90, 0.2);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.card:hover {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+.card h6{
+    font-size: 0.7rem;
+}
+
+.progress{
+    height: 10px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+.progress, .progress-bar span{
+    font-size: 8px;
+}
+
+
+
+/*style donasi page  */
+.icon-donasi{
+    font-size: 3rem;
+}
+
+.form-donasi{
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(90, 90, 90, 0.2);
+}
+
+
+.bank-img {
+    width: 40px;
+    height: auto;
+    padding: 4px;
+    border-radius: 4px;
+  }
+  
+
+.fa-user, .fa-envelope, .fa-phone{
+    color: var(--skyblue);
+}
+
+
+
+
+footer{
+
+    background-color: var(--darkblue);
+    color: var(--skyblue-light) !important;
+    bottom: 0 !important;
+    width: 100% !important;
+}
