@@ -73,8 +73,8 @@
 
     <div class="mb-3">
         <label for="alamat" class="form-label text-sm">Alamat</label>
-        <textarea value="{{ old('alamat') }}" name="alamat" class="form-control text-sm @error('alamat') is-invalid @enderror" id="alamat" rows="2"
-            placeholder="Masukkan Alamat"></textarea>
+        <textarea name="alamat" class="form-control text-sm @error('alamat') is-invalid @enderror" id="alamat" rows="2"
+            placeholder="Masukkan Alamat">{{ old('alamat') }}</textarea>
             @error('alamat')
             <div class="invalid-feedback">
                 {{ $message }}

@@ -13,11 +13,9 @@
         @foreach ($donasiHistory as $item) 
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            {{-- TEMPORER untuk debugging --}}
-            <td>ID: {{ $item->id ?? 'null' }}</td>
             <td>{{ $item['peristiwa'] }}</td>
-            <td>{{ $item['nominal'] }}</td>
-            <td>{{ $item['created_at'] }}</td>
+           <td>Rp {{ number_format($item['nominal'], 0, ',', '.') }}</td>
+            <td>{{ \Carbon\Carbon::parse($item['created_at'])->format('d M Y') }}</td>            
             <td>{{ $item['methode'] }}</td>
            <td>
                 <form action="{{ route('riwayat.destroy', $item->id) }}" method="POST"

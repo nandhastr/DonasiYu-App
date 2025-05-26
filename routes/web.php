@@ -13,7 +13,7 @@ Route::get('/', [HomeController::class, 'index']);
 // // route auth
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login.store', [LoginController::class, 'store'])->name('login.store');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register.store', [RegisterController::class, 'store'])->name('register.store');
@@ -32,7 +32,9 @@ Route::middleware(['isLogin'])->group(function () {
     Route::delete('/riwayat/{id}', [DonasiController::class, 'destroy'])->name('riwayat.destroy');
     
     // route account
-    Route::get('/account', [AccountController::class, 'index']);
+    Route::get('/account', [AccountController::class, 'index'])->name('account');
+    Route::get('/account.edit', [AccountController::class, 'edit'])->name('account.edit');
+    Route::put('/account-update', [AccountController::class, 'update'])->name('account-update');
 
 });
 

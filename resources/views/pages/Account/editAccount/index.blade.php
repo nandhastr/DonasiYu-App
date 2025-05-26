@@ -17,7 +17,7 @@
             <span class="text-sm">{{ Auth::user()->email }}</span>
         </div>
         <div class="d-flex flex-column px-5 mt-3">
-            @include('components.Profile.index', ['profileItems' => $profileItems])
+            @include('components.Profile.editAccount.index', ['profileItems' => $profileItems])
         </div>
     </div>
 </div>

@@ -1,16 +1,17 @@
 @extends('components.layouts.MainLayout')
 @section('content')
 
+
+
 {{-- notification --}}
 @if (session('success'))
-<div class="card-body d-flex justify-content-end">
-    <button type="button" class="btn swalDefaultSuccess">
+<div class="card-body d-flex justify-content-center">
+    <button type="button" class="btn bg-success swalDefaultSuccess">
         {{ session('success') }}
     </button>
 </div>
 
 @endif
-
 <div class="d-flex justify-content-center align-items-center mb-5 ">
     <div class="d-flex flex-column  bg-white w-100 py-4 mt-5 form-donasi">
         <div class="d-flex flex-column justify-content-start align-items-center">
@@ -34,7 +35,7 @@
             alert.style.opacity = '0';
             setTimeout(() => alert.remove(), 500); 
         }
-    }, 2000); 
+    }, 3000); 
 </script>
 
 

@@ -13,6 +13,6 @@
         </div>
         
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn text-sm bg-btn  mt-5"><u><i class="fas fa-pen-alt"></i> Edit Profile</u></button>
+            <a href="{{ route('account.edit') }}" class="btn text-sm bg-btn  mt-5"><u><i class="fas fa-pen-alt"></i> Edit Profile</u></a>
         </div>
    

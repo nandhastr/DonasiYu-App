@@ -141,8 +141,12 @@ body{
   }
   
 
-.fa-user, .fa-envelope, .fa-phone{
+.fa-user, .fa-envelope, .fa-phone, .fa-bookmark, .fa-home, .fa-gift, .fa-sign-out-alt{
     color: var(--skyblue);
+}
+
+.fa-sign-out-alt:hover{
+    color: var(--darkblue);
 }
 
 
