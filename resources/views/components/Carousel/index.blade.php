@@ -8,7 +8,7 @@
   </div>
   <div class="carousel-inner">
     @foreach ($carouselItem as $item)
-    <div class="carousel-item position-relative {{ $item['id'] === 1 ? 'active' : '' }}" data-bs-interval="{{ $item['id'] === 1 ? '3000' : '2000' }}">
+    <div class="carousel-item position-relative {{ $item['id'] === 1 ? 'active' : '' }}" data-bs-interval="{{ $item['id'] === 1 ? '3000' : '3000' }}">
       <img src="{{ asset($item['img']) }}" class="d-block carousel-image" alt="...">
       <div class="carousel-caption position-absolute text-start">
         <h1 class="title-donate ">{{ $item['title'] }}</h1>

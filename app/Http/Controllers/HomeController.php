@@ -18,14 +18,14 @@ class HomeController
         [
                 "id" => 2,
             "img" => asset('/image/donate/donasi-2.jpg'),
-            "title" => "Second slide label",
-            "desc" => "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            "title" => "Ringan Tanganmu, Ringan Beban Mereka",
+            "desc" => "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         ],
         [
                 "id" => 3,
             "img" => asset('/image/donate/donasi-3.jpg'),
-            "title" => "Third slide label",
-            "desc" => "Some representative placeholder content for the third slide."
+            "title" => "Bersama Kita Bisa, Bersama Kita Berbagi",
+            "desc" => "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         ]
     ];
 
@@ -33,25 +33,25 @@ class HomeController
         [
             "id" => 1,
             "img" => asset('/image/donate/donasi-bencana.jpg'),
-            "title" => "Ulurkan Tanganmu",
+            "title" => "Peduli Bencana Alam",
             "desc" => "Tanganmu harapan orang yang membutuhkan."
         ],
         [
             "id" => 2,
             "img" => asset('/image/donate/donasi-darurat.jpg'),
-            "title" => "Ulurkan Tanganmu",
+            "title" => "Peduli Bencana Alam Dan Darurat",
             "desc" => "Tanganmu harapan orang yang membutuhkan."
         ],
         [
             "id" => 3,
             "img" => asset('/image/donate/donasi-kesehatan.jpg'),
-            "title" => "Ulurkan Tanganmu",
+            "title" => "Peduli Kesehatan",
             "desc" => "Tanganmu harapan orang yang membutuhkan."
         ],
         [
             "id" => 4,
             "img" => asset('/image/donate/donasi-pendidikan.jpg'),
-            "title" => "Ulurkan Tanganmu",
+            "title" => "Peduli Pendidikan",
             "desc" => "Tanganmu harapan orang yang membutuhkan."
         ],
 
