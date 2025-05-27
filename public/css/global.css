@@ -141,7 +141,7 @@ body{
   }
   
 
-.fa-user, .fa-envelope, .fa-phone, .fa-bookmark, .fa-home, .fa-gift, .fa-sign-out-alt{
+.fa-user, .fa-envelope, .fa-phone, .fa-bookmark, .fa-home, .fa-gift, .fa-sign-out-alt, .fa-sign-in-alt{
     color: var(--skyblue);
 }
 

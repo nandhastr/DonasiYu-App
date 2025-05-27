@@ -22,13 +22,14 @@ class AccountController extends Controller
     public function edit()
     {
         $data = [
-            'profileItems' => User::all(),
+            'user' => Auth::user(),
         ];
         return view('pages.Account.editAccount.index', $data);
     }
 
     public function update(Request $request)
     {
+        // \dd($request->all());
         $data = $request->validate([
             'name' => 'nullable|string',
             'email' => 'nullable|email',

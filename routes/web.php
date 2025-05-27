@@ -33,8 +33,8 @@ Route::middleware(['isLogin'])->group(function () {
     
     // route account
     Route::get('/account', [AccountController::class, 'index'])->name('account');
-    Route::get('/account.edit', [AccountController::class, 'edit'])->name('account.edit');
-    Route::put('/account-update', [AccountController::class, 'update'])->name('account-update');
+    Route::get('/account/edit', [AccountController::class, 'edit'])->name('account/edit');
+    Route::put('/account/update', [AccountController::class, 'update'])->name('account/update');
 
 });
 

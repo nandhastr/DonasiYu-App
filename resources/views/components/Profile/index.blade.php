@@ -12,7 +12,13 @@
             <input type="text" value="{{ Auth::user()->phone }}" id="disabledTextInput" class="form-control bg-transparent border-none" disabled >
         </div>
         
+        @php
+        $id = Auth::user()->id;
+        @endphp
+        
         <div class="d-flex justify-content-end">
-            <a href="{{ route('account.edit') }}" class="btn text-sm bg-btn  mt-5"><u><i class="fas fa-pen-alt"></i> Edit Profile</u></a>
+            <a href="{{ route('account/edit', $id) }}" class="btn text-sm bg-btn mt-5">
+                <u><i class="fas fa-pen-alt"></i> Edit Profile</u>
+            </a>
         </div>
    

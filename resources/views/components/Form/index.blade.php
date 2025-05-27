@@ -4,13 +4,13 @@
 
   <div class="mb-3">
     <label class="form-label text-sm">Nama Lengkap</label>
-    <input type="text" class="form-control text-sm" disabled placeholder="{{ Auth::user()->name }}">
+    <input type="text" class="form-control text-sm" disabled placeholder="{{ Auth::user()->name }}" autocomplete="off">
   </div>
 
   <div class="mb-3">
     <label for="donasiInput" class="form-label text-sm">Jumlah Donasi</label>
     <input type="number" name="nominal" class="form-control text-sm @error('nominal') is-invalid @enderror"
-      value="{{ old('nominal') }}" id="donasiInput" placeholder="Masukan Jumlah Donasi Dalam Bentuk Angka">
+      value="{{ old('nominal') }}" id="donasiInput" placeholder="Masukan Jumlah Donasi Dalam Bentuk Angka" autocomplete="off">
     @error('nominal')
     <div class="invalid-feedback">
       {{ $message }}
@@ -21,7 +21,7 @@
   <div class="mb-3">
     <label for="donasiInput" class="form-label text-sm">Pilih Donasi Untuk :</label>
     <select class="form-select text-sm @error('peristiwa') is-invalid @enderror" id="donasiInput"
-      value="{{ old('peristiwa') }}" name="peristiwa" aria-label="Default select example">
+      value="{{ old('peristiwa') }}" name="peristiwa" aria-label="Default select example" autocomplete="off">
       <option value="">Pilih Tujuan Donasi </option>
       <option value="Donasi Bencana">Donasi Bencana</option>
       <option value="Donasi Darurat">Donasi Darurat</option>
@@ -40,9 +40,9 @@
 
   <div class="mb-3 d-flex flex-column ">
     <label class="form-label text-sm" for="exampleCheck1">Metode Pembayaran</label>
-    <div class="@error('methode') is-invalid @enderror">
+   
       <div class="form-check form-check-inline form-control  gap-2  px-2 py-1  ">
-        <input class="form-check-input" type="radio" name="methode" id="inlineRadio1" value="bank-transfer">
+        <input class="form-check-input" type="radio" name="methode" id="inlineRadio1" value="bank-transfer" autocomplete="off">
 
         <label class="form-check-label d-flex gap-2 justify-content-center align-items-center text-sm "
           for="inlineRadio1">
@@ -56,14 +56,15 @@
       </div>
       <div class="d-flex gap-4 justify-content-between">
         <div class="form-check form-check-inline form-control d-flex gap-2  px-2 py-1 ">
-          <input class="form-check-input " type="radio" name="methode" id="inlineRadio2" value="e-wallet">
+          <input class="form-check-input " type="radio" name="methode" id="inlineRadio2" value="e-wallet" autocomplete="off">
           <label class="form-check-label  d-flex gap-2 justify-content-center align-items-center text-sm"
             for="inlineRadio1">
             <img src="{{ asset('/image/payment-methode/e-wallet.png') }}" class="bank-img" alt="e-wallet">
             E-Wallet</label>
         </div>
+        
         <div class="form-check form-check-inline form-control d-flex gap-2  px-2 py-1 ">
-          <input class="form-check-input " type="radio" name="methode" id="inlineRadio3" value="cash">
+          <input class="form-check-input " type="radio" name="methode" id="inlineRadio3" value="cash" autocomplete="off">
           <label class="form-check-label  d-flex gap-2 justify-content-center align-items-center text-sm"
             for="inlineRadio1">
             <img src="{{ asset('/image/payment-methode/cash.png') }}" class="bank-img" alt="cash">
@@ -71,6 +72,7 @@
         </div>
       </div>
 
+      <div class="@error('methode') is-invalid @enderror">
     </div>
     @error('methode')
     <div class="invalid-feedback">
@@ -78,11 +80,12 @@
     </div>
     @enderror
   </div>
+  
 
   <div class="mb-3">
     <label for="exampleFormControlTextarea1" class="form-label text-sm">Sampaikan Pesan Anda</label>
     <textarea class="form-control text-sm @error('pesan') is-invalid @enderror" name="pesan"
-      id="exampleFormControlTextarea1" rows="3">{{ old('pesan') }}</textarea>
+      id="exampleFormControlTextarea1" rows="3" autocomplete="off">{{ old('pesan') }}</textarea>
 
     @error('pesan')
     <div class="invalid-feedback">
